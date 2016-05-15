@@ -1,0 +1,35 @@
+<template name="landingPage">
+  <div class="ui ab centered stackable grid" id="landingDiv">
+    <div class="nine wide column" style="overflow:auto">
+    <h3>Newsfeed</h3>
+    <button class="ui button blue inverted" id="viewOnMap">
+      VIEW ON MAP
+    </button>
+      <div class="ui feed">
+      {{#each event in events}}
+        <div class="event" style="background:#eee;margin-bottom:3px;">
+          <div class="label">
+            <i class="pencil icon"></i>
+          </div>
+          <div class="content">
+            <div class="summary">
+              {{event.username}} filed a report on <i>{{event.crimeType}}</i>.
+              <div class="date">{{moment event.timestamp}}</div>
+            </div>
+            <div class="summary" style="font-size:11px;font-weight:300;">
+              {{event.description}}
+              <br><i class="fa fa-globe" style="padding-right:2px;"></i>{{event.address}}
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    <div class="six wide column">
+        <div  id="broadcastFrame" style="height:calc(100vh - 120px) !important;">
+
+        </div>
+      
+    </div>
+  </div>
+</template>
