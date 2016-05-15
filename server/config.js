@@ -1,4 +1,14 @@
 Meteor.startup(function () {
+SSLProxy({
+       port: 6002, //or 443 (normal port/requires sudo)
+       ssl : {
+            key: Assets.getText("key.pem"),
+            cert: Assets.getText("cert.pem"),
+
+            //Optional CA
+            //Assets.getText("ca.pem")
+       }
+    });
 	var future= Meteor.npmRequire('fibers/future');
 	if(Meteor.settings.deploy){
 		var settings= Meteor.settings;
@@ -31,8 +41,8 @@ Meteor.startup(function () {
 		});
 		Accounts.loginServiceConfiguration.insert({
 		  service: "google",
-		  clientId: settings.google.clientId ||"560289550843-4ofalbcpciqjtvtag20el7q283qnl3u3.apps.googleusercontent.com",
-		  secret: settings.google.secret ||"D-hqAXq-NqseK6iMMZXg3Qze",
+		  clientId: settings.google.clientId ||"73671199506-23bht3u01gl4gkcao2h0ltf0cp7sufbq.apps.googleusercontent.com",
+		  secret: settings.google.secret ||"GndJ_dbPj1VbYTQxrhKhUe9I",
 		  requestPermission: ['email']
 		});
 	}else{ //localhost
@@ -64,8 +74,8 @@ Meteor.startup(function () {
 		});
 		Accounts.loginServiceConfiguration.insert({
 		  service: "google",
-		  clientId: "560289550843-4ofalbcpciqjtvtag20el7q283qnl3u3.apps.googleusercontent.com",
-		  secret: "D-hqAXq-NqseK6iMMZXg3Qze",
+		  clientId: "73671199506-23bht3u01gl4gkcao2h0ltf0cp7sufbq.apps.googleusercontent.com",
+		  secret: "GndJ_dbPj1VbYTQxrhKhUe9I",
 		  requestPermission: ['email']
 		});
 	}

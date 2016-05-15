@@ -17,7 +17,7 @@ Template.landingPage.events({
 
 Template.landingPage.onRendered(function(){
 	var frame= document.createElement('iframe');
-	frame.src='http://mercury.dmwilson.info:3000';
+	frame.src='http://test.dmwilson.info:3000';
 
 	$(frame).attr({'seamless':'seamless'});
 	$('#broadcastFrame').append(frame);
